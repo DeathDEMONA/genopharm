@@ -1,6 +1,6 @@
 #!/bin/bash
 # Deployment script for Drupal 11 on Hostinger
-DEPLOY_DIR="$HOME/public_html/drupal"
+DEPLOY_DIR="$HOME/domains/genopharm.co.uk/public_html/drupal"
 DRUSH="$DEPLOY_DIR/vendor/bin/drush"
 
 # Navigate to the Drupal directory
