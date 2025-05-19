@@ -1,0 +1,4 @@
+vendor/
+.ddev/
+web/sites/*/files/
+web/sites/*/settings.local.php
