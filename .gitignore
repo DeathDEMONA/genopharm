@@ -4,3 +4,4 @@ web/sites/*/files/
 web/sites/*/settings.local.php
 web/sites/default/settings.local.php
 web/sites/default/settings.prod.php
+menu.shDBs/*

@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Genopharm theme.
+ */
+
+function genopharm_theme_preprocess_page(&$variables) {
+  // Add custom variables or logic here if needed.
+}

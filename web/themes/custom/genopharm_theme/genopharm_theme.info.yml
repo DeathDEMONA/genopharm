@@ -1,0 +1,19 @@
+name: Genopharm Theme
+type: theme
+description: A child theme of Olivero for Genopharm customizations.
+package: Custom
+core_version_requirement: ^10 || ^11
+base theme: olivero
+libraries:
+  - genopharm_theme/global-styling
+
+regions:
+  header: Header
+  primary_menu: Primary menu
+  secondary_menu: Secondary menu
+  hero: Hero
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar: Sidebar
+  footer: Footer
