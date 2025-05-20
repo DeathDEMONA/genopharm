@@ -77,24 +77,4 @@ else
     log "Drush not found. Skipping Drupal maintenance tasks."
 fi
 
-# Compile SCSS for genopharm_theme
-THEME_DIR="$DEPLOY_DIR/web/themes/custom/genopharm_theme"
-log "Checking for Node.js"
-if ! command -v node >/dev/null 2>&1; then
-    log "Installing Node.js"
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - 2>&1 | while IFS= read -r line; do log "$line"; done
-    apt-get install -y nodejs 2>&1 | while IFS= read -r line; do log "$line"; done
-fi
-log "Navigating to theme directory"
-cd "$THEME_DIR" 2>&1 | while IFS= read -r line; do log "$line"; done || { log "Failed to cd to $THEME_DIR"; exit 1; }
-log "Installing npm dependencies"
-npm install 2>&1 | while IFS= read -r line; do log "$line"; done || { log "npm install failed"; exit 1; }
-log "Compiling SCSS"
-npm run build 2>&1 | while IFS= read -r line; do log "$line"; done || { log "SCSS compilation failed"; exit 1; }
-log "Returning to deploy directory"
-cd "$DEPLOY_DIR" 2>&1 | while IFS= read -r line; do log "$line"; done
-log "Rebuilding cache after SCSS compilation"
-"$DRUSH" cache:rebuild 2>&1 | while IFS= read -r line; do log "$line"; done
-
-
 log "Deployment completed successfully"
