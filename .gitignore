@@ -4,6 +4,7 @@ web/sites/*/files/
 web/sites/*/settings.local.php
 web/sites/default/settings.local.php
 web/sites/default/settings.prod.php
+web/modules/contrib
 menu.sh
 DBs/*
 web/themes/custom/genopharm_theme/scss
