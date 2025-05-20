@@ -36,6 +36,8 @@ if [ -f "$DRUSH" ]; then
     echo "[$(date)] Running Drush tasks" >> "$LOG_FILE"
     "$DRUSH" cache:rebuild >> "$LOG_FILE" 2>&1
     "$DRUSH" updatedb -y >> "$LOG_FILE" 2>&1
+    "$DRUSH" cim -y >> "$LOG_FILE" 2>&1
+    "$DRUSH" cache:rebuild >> "$LOG_FILE" 2>&1
 else
     echo "[$(date)] Drush not found. Skipping Drupal maintenance tasks." >> "$LOG_FILE"
 fi
