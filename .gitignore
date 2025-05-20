@@ -9,3 +9,4 @@ menu.sh
 DBs/*
 web/themes/custom/genopharm_theme/scss
 web/themes/custom/genopharm_theme/node_modules
+test
