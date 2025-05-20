@@ -18,6 +18,9 @@ REMOTE_DRUPAL_DIR="domains/genopharm.co.uk/public_html/drupal"
 LOCAL_BACKUP_DIR="$HOME/genopharm/DBs"
 BACKUP_FILE="genopharm-$(date +%Y%m%d-%H%M%S).sql"
 
+# Local theme directory for SCSS compilation
+THEME_DIR="$HOME/genopharm/web/themes/custom/genopharm_theme"
+
 # Secure script permissions
 chmod 600 "$0"
 
@@ -105,7 +108,8 @@ drush_menu() {
             --title "Drush Commands (Local)" \
             --menu "Select a Drush command:" $HEIGHT $WIDTH $MENU_HEIGHT \
             1 "Run drush deploy" \
-            2 "Back" \
+            2 "Compile SCSS for genopharm_theme" \
+            3 "Back" \
             2>&1 >/dev/tty)
 
         # Reset terminal colors after dialog
@@ -123,6 +127,25 @@ drush_menu() {
                 read -p "Press Enter to continue..."
                 ;;
             2)
+                echo "Compiling SCSS for genopharm_theme..."
+                if [ -d "$THEME_DIR" ]; then
+                    cd "$THEME_DIR" || { echo "Failed to navigate to $THEME_DIR"; read -p "Press Enter to continue..."; continue; }
+                    if command -v npm >/dev/null 2>&1; then
+                        echo "Installing npm dependencies..."
+                        npm install 2>&1 || { echo "npm install failed"; read -p "Press Enter to continue..."; continue; }
+                        echo "Compiling SCSS..."
+                        npm run build 2>&1 || { echo "SCSS compilation failed"; read -p "Press Enter to continue..."; continue; }
+                        echo "SCSS compiled successfully."
+                    else
+                        echo "Error: npm not found. Please install Node.js and npm."
+                    fi
+                    cd - >/dev/null
+                else
+                    echo "Error: Theme directory $THEME_DIR not found."
+                fi
+                read -p "Press Enter to continue..."
+                ;;
+            3)
                 return
                 ;;
             *)
