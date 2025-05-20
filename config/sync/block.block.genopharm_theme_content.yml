@@ -1,0 +1,22 @@
+uuid: 3ded31b2-722c-4e8b-9931-0b1f7dd6a375
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - genopharm_theme
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: genopharm_theme_content
+theme: genopharm_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

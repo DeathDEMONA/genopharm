@@ -1,0 +1,22 @@
+uuid: ad6f2cdf-c985-4947-b9bc-5c290b2700a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - genopharm_theme
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: genopharm_theme_breadcrumbs
+theme: genopharm_theme
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }
