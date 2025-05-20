@@ -258,7 +258,7 @@ $databases = [];
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-# $settings['config_sync_directory'] = '/directory/outside/webroot';
+$settings['config_sync_directory'] = '../config/sync';
 
 /**
  * Settings:
@@ -288,7 +288,7 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = 'WsuncymOzi5lTEzfqXceDKW4oohfbr9+jlDuaBaMwVQ=';
 
 /**
  * Deployment identifier.
@@ -880,6 +880,7 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev
   include __DIR__ . '/settings.ddev.php';
 }
 
+
 /**
  * Load local development override configuration, if available.
  *
@@ -897,3 +898,13 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+
+// Include environment-specific settings (local or production).
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+    include $app_root . '/' . $site_path . '/settings.local.php';
+} elseif (file_exists($app_root . '/' . $site_path . '/settings.prod.php')) {
+    include $app_root . '/' . $site_path . '/settings.prod.php';
+}
+
+// Optional: Enable config readonly in production for safety.
+$settings['config_readonly'] = TRUE;
