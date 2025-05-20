@@ -6,3 +6,5 @@ web/sites/default/settings.local.php
 web/sites/default/settings.prod.php
 menu.sh
 DBs/*
+web/themes/custom/genopharm_theme/scss
+web/themes/custom/genopharm_theme/node_modules
