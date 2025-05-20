@@ -21,7 +21,11 @@
         "drupal/core-recommended": "^11.1",
         "drupal/gin": "^4.0",
         "drupal/gin_toolbar": "^2.0",
+        "drupal/webprofiler": "^11.1",
         "drush/drush": "^13.6"
+    },
+    "require-dev": {
+        "drupal/devel": "^5.3"
     },
     "conflict": {
         "drupal/drupal": "*"
